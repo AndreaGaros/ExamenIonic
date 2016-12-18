@@ -1,0 +1,48 @@
+<ion-view view-title="Student Info">
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider">
+        <b>Nombre:</b> {{student.name}}<br>
+        <b>Dirección:</b> {{student.address}}
+      </div>
+      <div class="item item-text-wrap">
+        <ion-list>
+          <ion-item ng-repeat="phone in phones">
+            <b>{{phone.cont}}:</b> {{phone.number}}
+
+            <button class="ion-close-circled" style="color: red" ng-click="DeletePhn(phone._id)"></button>
+          </ion-item>
+          <div ng-if="phones.length == '0'">
+            <h3>No existen contactos</h3>
+          </div>
+        </ion-list>
+      </div>
+    </div>
+    <div class="text-center">
+      <button class="button button-assertive text-center" ng-click="DeleteStudent(student._id)">
+        Eliminar estudiante
+      </button>
+    </div>
+    <div class="card">
+      <div class="item item-divider">
+        <b>Añadir un telefono:</b>
+      </div>
+      <div class="item item-text-wrap">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="Tipo de contacto" ng-model="phone.cont" required>
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Numero" ng-model="phone.number" required>
+          </label>
+          <button class="button button-full button-positive" ng-click="AddPhn()" ng-disabled="!phone.cont || !phone.number || selected">
+            Añadir contacto
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
+
+

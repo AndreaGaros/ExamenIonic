@@ -1,0 +1,32 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content class="positive">
+    <ion-nav-bar class="positive">
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-dark ion-navicon" menu-toggle="left" style="color: black"></button>
+      </ion-nav-buttons>
+      <ion-nav-back-button style="color: black">
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-content class="positive">
+      <a class="item" style="align-content: center">
+        <img src = "/img/eetac.png">
+      </a>
+      <ion-list>
+        <ion-item nav-clear menu-close style="color: black" href="#/app/subjectlist">
+          <i class="ion-bonfire"></i>  Asignaturas
+        </ion-item>
+        <ion-item nav-clear menu-close style="color: black" href="#/app/studentlist">
+          <i class="ion-ios-people"></i> Estudiantes
+        </ion-item>
+      </ion-list>
+      <ion-footer-bar>
+
+      </ion-footer-bar>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

@@ -1,0 +1,44 @@
+<ion-view view-title="Students">
+  <ion-content>
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" ng-model="busqueda" placeholder="Buscar un estudiante">
+        <button class="button button-clear" ng-click="busqueda = null">
+          <i class="ion-ios-close-outline" style="color: dimgrey"></i>
+        </button>
+      </label>
+    </div>
+
+
+
+    <ion-list>
+      <ion-item ng-repeat="student in students | filter:busqueda | orderBy:'name'" href="#/app/studentprofile/{{student._id}}" class="item item-button-right">
+        {{student.name}}
+      </ion-item>
+    </ion-list>
+    <br>
+    <br>
+
+    <div class="card">
+      <div class="item item-divider">
+        <b>Nuevo estudiante:</b>
+      </div>
+      <div class="item item-text-wrap">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="Nombre" ng-model="NewStudent.name" required>
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Dirección" ng-model="NewStudent.address" required>
+          </label>
+          <button class="button button-full button-positive" ng-click="CreateStudent()"  ng-disabled="!NewStudent.name || !NewStudent.address || selected">
+            Añadir estudiante
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-view>

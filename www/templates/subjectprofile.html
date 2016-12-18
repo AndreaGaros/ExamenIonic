@@ -1,0 +1,41 @@
+<ion-view view-title="Subject Info">
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider">
+        <b>Nombre:</b> {{subject.name}}<br>
+        <b>Cuatrimestre:</b> {{subject.when}}
+      </div>
+
+      <div class="item item-text-wrap">
+        <ion-list>
+          <ion-item ng-repeat="subjectstudent in subjectstudents |orderBy:'name'">
+            {{subjectstudent.name}}
+            <button class="button button-small button-assertive" ng-click="Popstudent(subjectstudent._id)">Desmatricular</button>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="item item-divider">
+        <b># estudiantes:</b> {{counter}}
+      </div>
+    </div>
+    <div class="text-center">
+      <button class="button button-assertive text-center" ng-click="DeleteSubject(subject._id)">
+        Eliminar asignatura
+      </button>
+    </div>
+    <div class="card">
+      <div class="item item-divider">
+        <b>Estudiantes</b>
+      </div>
+      <div class="item item-text-wrap">
+        <ion-list>
+          <ion-item ng-repeat="student in students |orderBy:'name'">
+            {{student.name}}
+            <button class="button button-small button-balanced" ng-click="Addstudent(student._id)">Matricular</button>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

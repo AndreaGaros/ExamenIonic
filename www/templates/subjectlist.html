@@ -1,0 +1,56 @@
+
+<ion-view view-title="Subjects">
+  <ion-content ng-init="getTodas()">
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" ng-model="busqueda" placeholder="Buscar una asignatura">
+        <button class="button button-clear" ng-click="busqueda = null">
+          <i class="ion-ios-close-outline" style="color: dimgrey"></i>
+        </button>
+      </label>
+    </div>
+
+
+
+    <ion-list>
+      <ion-item ng-repeat="subject in subjects | filter:busqueda | orderBy:'-students.length'" href="#/app/subjectprofile/{{subject._id}}" class="item item-button-right">
+        {{subject.name}}
+        {{subject.when}}
+        {{subject.students.length}}
+      </ion-item>
+    </ion-list>
+    <br>
+    <div class="card">
+      <div class="item item-divider">
+        <b>Nueva asigantura:</b>
+      </div>
+      <div class="item item-text-wrap">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="Nombre" ng-model="NewSubject.name" required>
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Epoca" ng-model="NewSubject.when" required>
+          </label>
+          <button class="button button-full button-positive" ng-click="CreateSubject()"  ng-disabled="!NewSubject.name || !NewSubject.when || selected">
+            Añadir asignatura
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+  </ion-content>
+
+
+  <div style="position: absolute; bottom: 0px; width: 100%" class="button-bar">
+    <button class="button icon ion-leaf" ng-click="SearchQT()">
+    </button>
+    <button class="button icon ion-ios-flower-outline"  ng-click="SearchQP()" >
+    </button>
+    </button>
+    <button class="button icon ion-earth" ng-click="getTodas()">
+    </button>
+  </div>
+</ion-view>
