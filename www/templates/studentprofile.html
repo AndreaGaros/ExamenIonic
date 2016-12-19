@@ -10,7 +10,8 @@
           <ion-item ng-repeat="phone in phones">
             <b>{{phone.cont}}:</b> {{phone.number}}
 
-            <button class="ion-close-circled" style="color: red" ng-click="DeletePhn(phone._id)"></button>
+              <button ng-if="phones.length != '0'" class="ion-close-circled" style="color: red" ng-click="DeletePhn(phone._id)"></button>
+
           </ion-item>
           <div ng-if="phones.length == '0'">
             <h3>No existen contactos</h3>
